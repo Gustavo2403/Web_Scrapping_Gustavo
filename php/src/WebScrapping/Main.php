@@ -11,9 +11,21 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
-/**
- * Runner for the Webscrapping exercice.
- */
+/*
+class Main {
+  public static function run(): void {
+    $dom = new \DOMDocument('1.0', 'utf-8');
+    $dom->loadHTMLFile(__DIR__ . '/../../assets/origin.html');
+
+    $data = (new Scrapper())->scrap($dom);
+    var_dump($data);
+    // Write your logic to save the output file bellow.
+    print_r($data);
+  }
+
+} */
+
+
 class Main {
 
   /**
