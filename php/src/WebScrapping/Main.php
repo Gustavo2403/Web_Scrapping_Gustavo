@@ -1,6 +1,15 @@
 <?php
 
 namespace Chuva\Php\WebScrapping;
+require_once __DIR__ . '/../webscrapping/Scrapper.php';
+require_once 'vendor/box/spout/src/Spout/Autoloader/autoload.php';
+require 'vendor/autoload.php';
+use Chuva\Php\WebScrapping\Scrapper;
+use PHPUnit\Framework\TestCase;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
 /**
  * Runner for the Webscrapping exercice.
