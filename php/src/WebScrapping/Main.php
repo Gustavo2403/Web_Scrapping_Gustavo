@@ -2,8 +2,8 @@
 
 namespace Chuva\Php\WebScrapping;
 require_once __DIR__ . '/../webscrapping/Scrapper.php';
-require_once 'vendor/box/spout/src/Spout/Autoloader/autoload.php';
-require 'vendor/autoload.php';
+require_once  __DIR__ . '../../../vendor/box/spout/src/Spout/Autoloader/autoload.php';
+require __DIR__ . '../../../vendor/autoload.php';
 use Chuva\Php\WebScrapping\Scrapper;
 use PHPUnit\Framework\TestCase;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
