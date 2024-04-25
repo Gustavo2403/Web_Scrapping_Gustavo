@@ -3,17 +3,24 @@
 namespace Chuva\Php\WebScrapping;
 
 use Chuva\Php\WebScrapping\Scrapper;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PHPUnit\Framework\TestCase;
 
 require_once __DIR__ . '/../webscrapping/Scrapper.php';
 require_once __DIR__ . '/../../../vendor/box/spout/src/Spout/Autoloader/autoload.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
-class Main extends TestCase {
+/**
+ * Classe de teste para Main
+ */
+class Main extends TestCase 
+{
+    /**
+     * Teste principal
+     */
     public function test() {
         $dom = new \DOMDocument('1.0', 'utf-8');
         $dom->loadHTMLFile(__DIR__ . '/../../assets/origin.html');
@@ -23,16 +30,16 @@ class Main extends TestCase {
 
         $this->assertIsArray($results);
 
-        // Crie uma instância do objeto Spreadsheet
+        // Crie uma instância do objeto Spreadsheet.
         $spreadsheet = new Spreadsheet();
 
-        // Obtenha a planilha ativa
+        // Obtenha a planilha ativa.
         $sheet = $spreadsheet->getActiveSheet()->setTitle('Sheet1');
 
-        // Inicialize o contador para o número máximo de autores encontrados
+        // Inicialize o contador para o número máximo de autores encontrados.
         $maxAuthors = 0;
 
-        // Iterar sobre cada resultado para encontrar o número máximo de autores
+        // Iterar sobre cada resultado para encontrar o número máximo de autores.
         foreach ($results as $result) {
             $numberOfAuthors = count($result->getPersons());
             if ($numberOfAuthors > $maxAuthors) {
@@ -40,7 +47,7 @@ class Main extends TestCase {
             }
         }
 
-        // Cabeçalho das colunas
+        // Cabeçalho das colunas.
         $headerCells = ['ID', 'Title', 'Type'];
 
         for ($i = 1; $i <= $maxAuthors; $i++) {
@@ -48,20 +55,20 @@ class Main extends TestCase {
             $headerCells[] = 'Author ' . $i . ' Institution';
         }
 
-        // Adicione o cabeçalho
+        // Adicione o cabeçalho.
         $sheet->fromArray([$headerCells]);
 
-        // Adicione os estilos para o cabeçalho
+        // Adicione os estilos para o cabeçalho.
         $headerStyle = [
             'font' => [
                 'name' => 'Arial',
-                'bold' => true,
+                'bold' => TRUE,
                 'size' => 10,
             ],
             'alignment' => [
                 'horizontal' => Alignment::HORIZONTAL_LEFT,
                 'vertical' => Alignment::VERTICAL_TOP,
-                'wrapText' => true,
+                'wrapText' => TRUE,
             ],
         ];
 
@@ -73,7 +80,7 @@ class Main extends TestCase {
             'alignment' => [
                 'horizontal' => Alignment::HORIZONTAL_LEFT,
                 'vertical' => Alignment::VERTICAL_TOP,
-                'wrapText' => true,
+                'wrapText' => TRUE,
             ],
         ];
 
@@ -85,46 +92,46 @@ class Main extends TestCase {
             'alignment' => [
                 'horizontal' => Alignment::HORIZONTAL_RIGHT,
                 'vertical' => Alignment::VERTICAL_TOP,
-                'wrapText' => true,
+                'wrapText' => TRUE,
             ],
         ];
 
-        // Coordenada da última coluna
+        // Coordenada da última coluna.
         $lastColumn = Coordinate::stringFromColumnIndex(52);
         $range = 'A1:' . $lastColumn . '1';
         $sheet->getStyle($range)->applyFromArray($headerStyle);
 
-        // Adicione os dados de cada resultado
+        // Adicione os dados de cada resultado.
         foreach ($results as $rowIndex => $result) {
             $rowData = [
                 $result->getId(), $result->getTitle(), $result->getType()
             ];
 
-            // Adicione as informações de autor e instituição como colunas separadas
+            // Adicione as informações de autor e instituição como colunas separadas.
             foreach ($result->getPersons() as $person) {
                 $rowData[] = $person->getName();
                 $rowData[] = $person->getInstitution();
             }
 
-            // Preencha com células vazias se necessário
+            // Preencha com células vazias se necessário.
             $remainingCells = 40 - count($rowData);
             for ($i = 0; $i < $remainingCells; $i++) {
                 $rowData[] = '';
             }
 
-            // Adicione a linha na planilha
-            $sheet->fromArray([$rowData], null, 'A' . ($rowIndex + 2));
+            // Adicione a linha na planilha.
+            $sheet->fromArray([$rowData], NULL, 'A' . ($rowIndex + 2));
 
-            // Aplicar o estilo idStyle apenas à coluna A
+            // Aplicar o estilo idStyle apenas à coluna A.
             $sheet->getStyle('A' . ($rowIndex + 2))->applyFromArray($idStyle);
 
-            // Aplicar o estilo bodyStyle às outras colunas
-            $lastColumn = Coordinate::stringFromColumnIndex(52); // "AZ"
+            // Aplicar o estilo bodyStyle às outras colunas.
+            $lastColumn = Coordinate::stringFromColumnIndex(52); 
             $bodyRange = 'B' . ($rowIndex + 2) . ':' . $lastColumn . ($rowIndex + 2);
             $sheet->getStyle($bodyRange)->applyFromArray($bodyStyle);
         }
 
-        // Defina a largura das colunas A e B
+        // Defina a largura das colunas A e B.
         $sheet->getColumnDimension('A')->setWidth(15);
         $sheet->getColumnDimension('B')->setWidth(45);
         $sheet->getColumnDimension('C')->setWidth(20);
@@ -135,13 +142,13 @@ class Main extends TestCase {
             $sheet->getColumnDimension($columnName)->setWidth(28);
         }
 
-        // Crie um objeto Writer para salvar a planilha em um arquivo Excel
+        // Crie um objeto Writer para salvar a planilha em um arquivo Excel.
         $writer = new Xlsx($spreadsheet);
 
-        // Especifique o caminho do arquivo onde você deseja salvar a planilha
+        // Especifique o caminho do arquivo onde você deseja salvar a planilha.
         $filePath = __DIR__ . '/../../../assets/model.xlsx';
 
-        // Salve a planilha no arquivo especificado
+        // Salve a planilha no arquivo especificado.
         $writer->save($filePath);
     }
 }
