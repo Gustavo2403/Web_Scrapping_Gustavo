@@ -14,14 +14,14 @@ require_once __DIR__ . '/../../../vendor/box/spout/src/Spout/Autoloader/autoload
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
 /**
- * Classe de teste para Main
+ * Classe de teste para Main.
  */
-class Main extends TestCase 
-{
+class Main extends TestCase{
     /**
-     * Teste principal
+     * Teste principal.
      */
-    public function test() {
+
+    public function test(){
         $dom = new \DOMDocument('1.0', 'utf-8');
         $dom->loadHTMLFile(__DIR__ . '/../../assets/origin.html');
 
@@ -35,10 +35,8 @@ class Main extends TestCase
 
         // Obtenha a planilha ativa.
         $sheet = $spreadsheet->getActiveSheet()->setTitle('Sheet1');
-
         // Inicialize o contador para o número máximo de autores encontrados.
         $maxAuthors = 0;
-
         // Iterar sobre cada resultado para encontrar o número máximo de autores.
         foreach ($results as $result) {
             $numberOfAuthors = count($result->getPersons());
@@ -130,7 +128,6 @@ class Main extends TestCase
             $bodyRange = 'B' . ($rowIndex + 2) . ':' . $lastColumn . ($rowIndex + 2);
             $sheet->getStyle($bodyRange)->applyFromArray($bodyStyle);
         }
-
         // Defina a largura das colunas A e B.
         $sheet->getColumnDimension('A')->setWidth(15);
         $sheet->getColumnDimension('B')->setWidth(45);
@@ -152,3 +149,4 @@ class Main extends TestCase
         $writer->save($filePath);
     }
 }
+
