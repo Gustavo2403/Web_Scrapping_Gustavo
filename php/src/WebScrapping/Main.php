@@ -73,27 +73,27 @@ class Main extends TestCase {
 
     $bodyStyle = [
       'font' => [
-          'name' => 'Arial',
-          'size' => 10,
-        ],
+        'name' => 'Arial',
+        'size' => 10,
+      ],
       'alignment' => [
-          'horizontal' => Alignment::HORIZONTAL_LEFT,
-          'vertical' => Alignment::VERTICAL_TOP,
-          'wrapText' => TRUE,
-        ],
+        'horizontal' => Alignment::HORIZONTAL_LEFT,
+        'vertical' => Alignment::VERTICAL_TOP,
+        'wrapText' => TRUE,
+      ],
     ];
 
     $idStyle = [
-          'font' => [
-              'name' => 'Arial',
-              'size' => 10,
-          ],
-          'alignment' => [
-              'horizontal' => Alignment::HORIZONTAL_RIGHT,
-              'vertical' => Alignment::VERTICAL_TOP,
-              'wrapText' => TRUE,
-          ],
-        ];
+      'font' => [
+        'name' => 'Arial',
+        'size' => 10,
+      ],
+      'alignment' => [
+        'horizontal' => Alignment::HORIZONTAL_RIGHT,
+        'vertical' => Alignment::VERTICAL_TOP,
+        'wrapText' => TRUE,
+      ],
+    ];
 
     // Coordenada da última coluna.
     $lastColumn = Coordinate::stringFromColumnIndex(52);
@@ -103,8 +103,8 @@ class Main extends TestCase {
     // Adicione os dados de cada resultado.
     foreach ($results as $rowIndex => $result) {
       $rowData = [
-                $result->getId(), $result->getTitle(), $result->getType(),
-            ];
+        $result->getId(), $result->getTitle(), $result->getType(),
+      ];
 
       // Adicione as informações de autor e instituição.
       foreach ($result->getPersons() as $person) {
