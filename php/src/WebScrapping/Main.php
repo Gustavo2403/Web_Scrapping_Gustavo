@@ -9,7 +9,6 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PHPUnit\Framework\TestCase;
 
 require_once __DIR__ . '/../webscrapping/Scrapper.php';
-require_once __DIR__ . '/../../../vendor/box/spout/src/Spout/Autoloader/autoload.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
 /**
@@ -39,7 +38,7 @@ class Main extends TestCase {
 
     // Iterar sobre cada resultado para encontrar o número máximo de autores.
     foreach ($results as $result) {
-      $numberOfAuthors = count($result->getPersons());
+      $numberOfAuthors = count($result->getAuthors());
       if ($numberOfAuthors > $maxAuthors) {
         $maxAuthors = $numberOfAuthors;
       }
@@ -107,7 +106,7 @@ class Main extends TestCase {
       ];
 
       // Adicione as informações de autor e instituição.
-      foreach ($result->getPersons() as $person) {
+      foreach ($result->getAuthors() as $person) {
         $rowData[] = $person->getName();
         $rowData[] = $person->getInstitution();
       }
