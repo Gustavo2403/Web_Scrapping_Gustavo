@@ -8,9 +8,9 @@ use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PHPUnit\Framework\TestCase;
 
-require_once '/home/runner/work/Web_Scrapping_Gustavo/Web_Scrapping_Gustavo/php/src/webscrapping/Scrapper.php';
-require_once '/home/runner/work/Web_Scrapping_Gustavo/Web_Scrapping_Gustavo/vendor/autoload.php';
-require_once '/home/runner/work/Web_Scrapping_Gustavo/Web_Scrapping_Gustavo/vendor/box/spout/src/Spout/Autoloader/autoload.php';
+require_once __DIR__ . '/../webscrapping/Scrapper.php';
+require_once __DIR__ . '/../../../vendor/box/spout/src/Spout/Autoloader/autoload.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';
 
 /**
  * Classe de teste para Main.
