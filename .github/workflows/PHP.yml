@@ -11,7 +11,13 @@ jobs:
   Psalm:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        NODE_VERSION: 20
 
     - name: Installs composer
       run: |
@@ -26,7 +32,13 @@ jobs:
   PHPlint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        NODE_VERSION: 20
 
     - name: Installs composer
       run: |
@@ -46,7 +58,13 @@ jobs:
   PHPUnit:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        NODE_VERSION: 20
 
     - name: Installs composer
       run: |
@@ -57,3 +75,4 @@ jobs:
       run: |
         cd php;
         ./vendor/bin/phpunit --fail-on-warning --fail-on-notice  tests/Unit
+
