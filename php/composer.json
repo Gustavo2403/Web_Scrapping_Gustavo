@@ -19,8 +19,7 @@
         "drupal/coder": "8.3.x-dev",
         "box/spout": "^3.3",
         "phpoffice/phpexcel": "^1.8",
-        "phpoffice/phpspreadsheet": "dev-master",
-        "phplint/phplint": "^5.0"
+        "phpoffice/phpspreadsheet": "dev-master"
     },
     "config": {
         "allow-plugins": {
