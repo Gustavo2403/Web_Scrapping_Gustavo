@@ -17,8 +17,6 @@
         "openspout/openspout": "^3.4",
         "psalm/phar": "^4.7",
         "drupal/coder": "8.3.x-dev",
-        "box/spout": "^3.3",
-        "phpoffice/phpexcel": "^1.8",
         "phpoffice/phpspreadsheet": "dev-master",
         "php": "^8.1"
     },
