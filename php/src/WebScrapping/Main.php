@@ -16,6 +16,7 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
  * Classe de teste para Main.
  */
 class Main extends TestCase {
+
   /**
    * Teste principal.
    */
@@ -56,17 +57,17 @@ class Main extends TestCase {
     $sheet->fromArray([$headerCells]);
 
     // Adicione os estilos para o cabeçalho.
-      $headerStyle = [
-    'font' => [
-        'name' => 'Arial',
-              'bold' => TRUE,
-              'size' => 10,
-            ],
-            'alignment' => [
-            'horizontal' => Alignment::HORIZONTAL_LEFT,
+        $headerStyle = [
+      'font' => [
+      'name' => 'Arial',
+      'bold' => TRUE,
+    'size' => 10,
+        ],
+              'alignment' => [
+              'horizontal' => Alignment::HORIZONTAL_LEFT,
             'vertical' => Alignment::VERTICAL_TOP,
-              'wrapText' => TRUE,
-    ],
+            'wrapText' => TRUE,
+      ],
         ];
 
       $bodyStyle = [
