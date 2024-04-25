@@ -13,7 +13,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 class Scrapper {
 
   /**
-   * Carrega informações do papel a partir do HTML e retorna um array com os dados.
+   * Carrega informações do html e retorna um array com os dados.
    */
   public function scrap(\DOMDocument $dom): array {
     $xPath = new \DOMXPath($dom);
@@ -47,8 +47,7 @@ class Scrapper {
         // Extrai o nome do autor.
         $authorName = trim($author);
         // Extrai a instituição correspondente ao autor, se existir.
-        $institution = isset($institutions[$key]) ? $institutions[$key]->getAttribute('title') : null;
-        // Verifica se o nome do autor não está vazio e se há uma instituição correspondente.
+        $institution = isset($institutions[$key]) ? $institutions[$key]->getAttribute('title') : NULL;
         if (!empty($authorName) && !empty($institution)) {
           // Cria uma instância de Person com o nome do autor e a instituição.
           $persons[] = new Person($authorName, $institution);
@@ -62,4 +61,6 @@ class Scrapper {
     // Retorna o array de papers.
     return $papers;
   }
+  
 }
+
