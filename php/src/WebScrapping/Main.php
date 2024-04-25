@@ -2,31 +2,16 @@
 
 namespace Chuva\Php\WebScrapping;
 
-require_once __DIR__ . '/../webscrapping/Scrapper.php';
-require_once __DIR__ . '/../../../vendor/box/spout/src/Spout/Autoloader/autoload.php';
-require_once __DIR__ . '/../../../vendor/autoload.php';
-
 use Chuva\Php\WebScrapping\Scrapper;
-use PHPUnit\Framework\TestCase;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
+use PHPUnit\Framework\TestCase;
 
-/*
-class Main {
-  public static function run(): void {
-    $dom = new \DOMDocument('1.0', 'utf-8');
-    $dom->loadHTMLFile(__DIR__ . '/../../assets/origin.html');
-
-    $data = (new Scrapper())->scrap($dom);
-    var_dump($data);
-    // Write your logic to save the output file bellow.
-    print_r($data);
-  }
-
-} */
-
+require_once __DIR__ . '/../webscrapping/Scrapper.php';
+require_once __DIR__ . '/../../../vendor/box/spout/src/Spout/Autoloader/autoload.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';
 
 class Main extends TestCase {
     public function test() {
@@ -78,7 +63,6 @@ class Main extends TestCase {
                 'vertical' => Alignment::VERTICAL_TOP,
                 'wrapText' => true,
             ],
-       
         ];
 
         $bodyStyle = [
@@ -91,7 +75,6 @@ class Main extends TestCase {
                 'vertical' => Alignment::VERTICAL_TOP,
                 'wrapText' => true,
             ],
-       
         ];
 
         $idStyle = [
@@ -104,16 +87,12 @@ class Main extends TestCase {
                 'vertical' => Alignment::VERTICAL_TOP,
                 'wrapText' => true,
             ],
-       
         ];
 
         // Coordenada da última coluna
         $lastColumn = Coordinate::stringFromColumnIndex(52);
         $range = 'A1:' . $lastColumn . '1';
         $sheet->getStyle($range)->applyFromArray($headerStyle);
-    
-  
-    
 
         // Adicione os dados de cada resultado
         foreach ($results as $rowIndex => $result) {
@@ -155,8 +134,6 @@ class Main extends TestCase {
             $columnName = Coordinate::stringFromColumnIndex($columnIndex);
             $sheet->getColumnDimension($columnName)->setWidth(28);
         }
-  
-
 
         // Crie um objeto Writer para salvar a planilha em um arquivo Excel
         $writer = new Xlsx($spreadsheet);
