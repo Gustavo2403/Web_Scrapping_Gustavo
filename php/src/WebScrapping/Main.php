@@ -2,7 +2,6 @@
 
 namespace Chuva\Php\WebScrapping;
 
-use Chuva\Php\WebScrapping\Scrapper;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
@@ -16,27 +15,27 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
 /**
  * Classe de teste para Main.
  */
-class Main extends TestCase{
+class Main extends TestCase {
     /**
      * Teste principal.
      */
-
-    public function test(){
+    public function test() {
         $dom = new \DOMDocument('1.0', 'utf-8');
         $dom->loadHTMLFile(__DIR__ . '/../../assets/origin.html');
-
         $scrapper = new Scrapper();
         $results = $scrapper->scrap($dom);
 
         $this->assertIsArray($results);
-
+        
         // Crie uma instância do objeto Spreadsheet.
         $spreadsheet = new Spreadsheet();
 
         // Obtenha a planilha ativa.
         $sheet = $spreadsheet->getActiveSheet()->setTitle('Sheet1');
+        
         // Inicialize o contador para o número máximo de autores encontrados.
         $maxAuthors = 0;
+        
         // Iterar sobre cada resultado para encontrar o número máximo de autores.
         foreach ($results as $result) {
             $numberOfAuthors = count($result->getPersons());
@@ -118,7 +117,7 @@ class Main extends TestCase{
             }
 
             // Adicione a linha na planilha.
-            $sheet->fromArray([$rowData], NULL, 'A' . ($rowIndex + 2));
+            $sheet->fromArray([$rowData], null, 'A' . ($rowIndex + 2));
 
             // Aplicar o estilo idStyle apenas à coluna A.
             $sheet->getStyle('A' . ($rowIndex + 2))->applyFromArray($idStyle);
@@ -128,6 +127,7 @@ class Main extends TestCase{
             $bodyRange = 'B' . ($rowIndex + 2) . ':' . $lastColumn . ($rowIndex + 2);
             $sheet->getStyle($bodyRange)->applyFromArray($bodyStyle);
         }
+
         // Defina a largura das colunas A e B.
         $sheet->getColumnDimension('A')->setWidth(15);
         $sheet->getColumnDimension('B')->setWidth(45);
@@ -149,4 +149,3 @@ class Main extends TestCase{
         $writer->save($filePath);
     }
 }
-
