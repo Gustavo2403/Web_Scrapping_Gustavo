@@ -37,6 +37,15 @@ class Paper {
 
   /**
    * Builder.
+   *
+   * @param int $id
+   *   The paper Id.
+   * @param string $title
+   *   The paper title.
+   * @param string $type
+   *   The paper type.
+   * @param array $authors
+   *   An array of Person objects representing the authors.
    */
   public function __construct($id, $title, $type, $authors = []) {
     $this->id = $id;
@@ -44,19 +53,42 @@ class Paper {
     $this->type = $type;
     $this->authors = $authors;
   }
-
+   /**
+   * Get the paper Id.
+   *
+   * @return int
+   *   The paper Id.
+   */
   public function getId() {
     return $this->id;
   }
 
+  /**
+   * Get the paper title.
+   *
+   * @return string
+   *   The paper title.
+   */
   public function getTitle() {
     return $this->title;
   }
 
+  /**
+   * Get the paper type.
+   *
+   * @return string
+   *   The paper type.
+   */
   public function getType() {
     return $this->type;
   }
 
+   /**
+   * Get the authors of the paper.
+   *
+   * @return \Chuva\Php\WebScrapping\Entity\Person[]
+   *   An array of Person objects representing the authors.
+   */
   public function getPersons() {
     return $this->authors;
   }
