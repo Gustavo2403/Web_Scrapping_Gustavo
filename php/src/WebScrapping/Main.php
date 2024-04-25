@@ -57,12 +57,12 @@ class Main extends TestCase {
     $sheet->fromArray([$headerCells]);
 
     // Adicione os estilos para o cabeçalho.
-        $headerStyle = [
-      'font' => [
-      'name' => 'Arial',
-      'bold' => TRUE,
-    'size' => 10,
-        ],
+    $headerStyle = [
+          'font' => [
+        'name' => 'Arial',
+        'bold' => TRUE,
+        'size' => 10,
+      ],
               'alignment' => [
               'horizontal' => Alignment::HORIZONTAL_LEFT,
             'vertical' => Alignment::VERTICAL_TOP,
