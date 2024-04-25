@@ -19,7 +19,6 @@ class Main extends TestCase {
   /**
    * Teste principal.
    */
-
   public function test() {
     $dom = new \DOMDocument('1.0', 'utf-8');
     $dom->loadHTMLFile(__DIR__ . '/../../assets/origin.html');
@@ -58,11 +57,11 @@ class Main extends TestCase {
 
     // Adicione os estilos para o cabeçalho.
       $headerStyle = [
-            'font' => [
-            'name' => 'Arial',
-            'bold' => TRUE,
+    'font' => [
+        'name' => 'Arial',
+              'bold' => TRUE,
               'size' => 10,
-      ],
+            ],
             'alignment' => [
             'horizontal' => Alignment::HORIZONTAL_LEFT,
             'vertical' => Alignment::VERTICAL_TOP,
