@@ -17,9 +17,10 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
  */
 class Main extends TestCase {
   /**
-     * Teste principal.
-  */
-    public function test() {
+   * Teste principal.
+   */
+
+  public function test() {
     $dom = new \DOMDocument('1.0', 'utf-8');
     $dom->loadHTMLFile(__DIR__ . '/../../assets/origin.html');
     $scrapper = new Scrapper();
@@ -56,29 +57,29 @@ class Main extends TestCase {
     $sheet->fromArray([$headerCells]);
 
     // Adicione os estilos para o cabeçalho.
-    $headerStyle = [
-          'font' => [
-              'name' => 'Arial',
-              'bold' => TRUE,
+      $headerStyle = [
+            'font' => [
+            'name' => 'Arial',
+            'bold' => TRUE,
               'size' => 10,
-          ],
-          'alignment' => [
-              'horizontal' => Alignment::HORIZONTAL_LEFT,
-              'vertical' => Alignment::VERTICAL_TOP,
+      ],
+            'alignment' => [
+            'horizontal' => Alignment::HORIZONTAL_LEFT,
+            'vertical' => Alignment::VERTICAL_TOP,
               'wrapText' => TRUE,
-          ],
+    ],
         ];
 
-    $bodyStyle = [
-          'font' => [
-              'name' => 'Arial',
+      $bodyStyle = [
+            'font' => [
+            'name' => 'Arial',
               'size' => 10,
-          ],
-          'alignment' => [
-              'horizontal' => Alignment::HORIZONTAL_LEFT,
-              'vertical' => Alignment::VERTICAL_TOP,
+      ],
+            'alignment' => [
+            'horizontal' => Alignment::HORIZONTAL_LEFT,
+            'vertical' => Alignment::VERTICAL_TOP,
               'wrapText' => TRUE,
-          ],
+    ],
         ];
 
     $idStyle = [
