@@ -33,10 +33,10 @@ class Main extends TestCase {
 
     // Obtenha a planilha ativa.
     $sheet = $spreadsheet->getActiveSheet()->setTitle('Sheet1');
-  
+
     // Inicialize o contador para o número máximo de autores encontrados.
     $maxAuthors = 0;
- 
+
     // Iterar sobre cada resultado para encontrar o número máximo de autores.
     foreach ($results as $result) {
       $numberOfAuthors = count($result->getPersons());
@@ -72,15 +72,15 @@ class Main extends TestCase {
     ];
 
     $bodyStyle = [
-        'font' => [
-        'name' => 'Arial',
-      'size' => 10,
-         ],
-        'alignment' => [
-            'horizontal' => Alignment::HORIZONTAL_LEFT,
-            'vertical' => Alignment::VERTICAL_TOP,
-            'wrapText' => TRUE,
-         ],
+      'font' => [
+          'name' => 'Arial',
+          'size' => 10,
+        ],
+      'alignment' => [
+          'horizontal' => Alignment::HORIZONTAL_LEFT,
+          'vertical' => Alignment::VERTICAL_TOP,
+          'wrapText' => TRUE,
+        ],
     ];
 
     $idStyle = [
