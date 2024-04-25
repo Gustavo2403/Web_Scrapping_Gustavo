@@ -61,6 +61,5 @@ class Scrapper {
     // Retorna o array de papers.
     return $papers;
   }
-  
-}
 
+}
