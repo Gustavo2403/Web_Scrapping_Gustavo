@@ -59,23 +59,24 @@ class Main extends TestCase {
     // Adicione os estilos para o cabeçalho.
     $headerStyle = [
       'font' => [
-            'name' => 'Arial',
-            'bold' => TRUE,
-            'size' => 10,
-          ],
+        'name' => 'Arial',
+        'bold' => TRUE,
+        'size' => 10,
+      ],
+
       'alignment' => [
-            'horizontal' => Alignment::HORIZONTAL_LEFT,
-            'vertical' => Alignment::VERTICAL_TOP,
-            'wrapText' => TRUE,
-         ],
+        'horizontal' => Alignment::HORIZONTAL_LEFT,
+        'vertical' => Alignment::VERTICAL_TOP,
+        'wrapText' => TRUE,
+      ],
     ];
 
     $bodyStyle = [
-      'font' => [
-            'name' => 'Arial',
-            'size' => 10,
+        'font' => [
+        'name' => 'Arial',
+      'size' => 10,
          ],
-      'alignment' => [
+        'alignment' => [
             'horizontal' => Alignment::HORIZONTAL_LEFT,
             'vertical' => Alignment::VERTICAL_TOP,
             'wrapText' => TRUE,
