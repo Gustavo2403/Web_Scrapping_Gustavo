@@ -2,7 +2,7 @@
 
 namespace Chuva\Php\WebScrapping;
 
-use Chuva\Php\WebScrapping\Scrapper;
+
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
