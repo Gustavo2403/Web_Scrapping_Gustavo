@@ -2,14 +2,14 @@
 
 namespace Chuva\Php\WebScrapping;
 
+use Chuva\Php\WebScrapping\Scrapper;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__ . '/../webscrapping/Scrapper.php';
-require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__ . '../../../vendor\autoload.php';
 
 /**
  * Classe de teste para Main.
@@ -144,7 +144,7 @@ class Main extends TestCase {
     $writer = new Xlsx($spreadsheet);
 
     // Especifique o caminho do arquivo onde você deseja salvar a planilha.
-    $filePath = __DIR__ . '/../../../assets/model.xlsx';
+    $filePath = (__DIR__ . '../../../assets\model.xlsx');
 
     // Salve a planilha no arquivo especificado.
     $writer->save($filePath);
